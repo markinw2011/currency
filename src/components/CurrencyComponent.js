@@ -1,14 +1,15 @@
-import './CurrencyComponent.css'
-const CurrencyCompoent =()=>{
-    return(
-        <div className="currency">
-            <select>
-                <option value ="THB">THB</option>
-                <option value ="USD">USD</option>
-                <option value ="EUR">EUR</option>
-            </select>
-            <input type="number"/>
-        </div>
-    )
-}
-export default CurrencyCompoent
+import "./CurrencyComponent.css";
+const CurrencyComponent = (props) => {
+  const { currencyChoice, selectCurrency,changeCurrency } = props;
+  return (
+    <div className="currency">
+      <select value={selectCurrency} onChange={changeCurrency}>
+        {currencyChoice.map((choice) => (
+          <option key={choice} value={choice}>{choice}</option>
+        ))}
+      </select>
+      <input type="number" />
+    </div>
+  );
+};
+export default CurrencyComponent;
